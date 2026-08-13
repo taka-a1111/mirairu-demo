@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- BUILD_TAG: mirairu_ihin_lp_ver6.0 / 2026-08-13 -->
+<!-- BUILD_TAG: mirairu_ihin_lp_ver6.1 / 2026-08-13 -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -1250,6 +1250,50 @@ ul,ol{list-style:none}
   .ptable .oth span{font-size:16px;letter-spacing:0}
   .ptable thead th{font-size:15px;letter-spacing:.02em}
   .ptable th,.ptable td{padding:15px 8px}
+}
+
+
+/* =========================================================
+   ver6.1
+   ========================================================= */
+
+/* ---- 見出しを中央寄せに戻し、縦バーを削除 ---- */
+.sec-h{text-align:center;padding-left:0}
+.sec-h::before{display:none}
+.sec-h .en{margin-bottom:4px}
+.sec-h h2{line-height:1.4}
+.sec-h .lead{margin-top:12px}
+
+/* ---- キャッチを中央寄せ・拡大 ---- */
+.fv-slash{
+  justify-content:center;font-size:clamp(15px,4.6vw,20px);gap:8px;
+  margin-bottom:14px;
+}
+.fv-slash::before,.fv-slash::after{height:24px;width:3px}
+
+/* ---- 価格ブロックを中央寄せ ---- */
+.fv-price{justify-content:center}
+.fv-note{text-align:center}
+
+/* ---- 女性をさらに右へ ---- */
+.fv-staff{right:-10px;width:39%;max-width:164px}
+.fv-l{padding-right:31%}
+
+@media (max-width:359px){
+  .fv-slash{font-size:clamp(13px,4.4vw,16px)}
+  .fv-staff{right:-8px;width:37%}
+  .fv-l{padding-right:29%}
+}
+@media (min-width:769px) and (max-width:899px){
+  .fv-staff{right:-6px;width:246px;max-width:none}
+  .fv-l{padding-right:32%}
+}
+@media (min-width:900px){
+  .fv-slash{justify-content:flex-start;font-size:clamp(16px,1.5vw,21px)}
+  .fv-staff{right:-8px;width:clamp(196px,21vw,272px);max-width:none}
+  .fv-l{padding-right:0}
+  .fv-price{justify-content:flex-start}
+  .fv-note{text-align:left}
 }
 
 </style>
