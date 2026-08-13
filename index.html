@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- BUILD_TAG: mirairu_ihin_lp_ver4.2 / 2026-08-13 -->
+<!-- BUILD_TAG: mirairu_ihin_lp_ver4.3 / 2026-08-13 -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -834,6 +834,42 @@ ul,ol{list-style:none}
   .fv-staff{top:40px}
 }
 
+
+/* ---- 料金表：見出しセルの文字色とスマホでの収まり ---- */
+.ptable thead th:first-child{background:#F0F4F9;color:var(--ink-s)}
+.ptable{min-width:0;table-layout:fixed}
+.ptable th:nth-child(1),.ptable td:nth-child(1){width:27%}
+.ptable th:nth-child(2),.ptable td:nth-child(2){width:34%}
+.ptable th:nth-child(3),.ptable td:nth-child(3){width:39%}
+.ptable th,.ptable td{padding:11px 4px}
+.ptable thead th{font-size:12px;letter-spacing:-.02em}
+.ptable .rm{font-size:14px;letter-spacing:-.02em}
+.ptable .rm small{font-size:10.5px;letter-spacing:-.04em}
+.ptable .own b{font-size:19px;letter-spacing:-.03em}
+.ptable .own b i{font-size:12px}
+.ptable .oth{font-size:12px;white-space:normal;line-height:1.55;letter-spacing:-.03em}
+.swipe{display:none}
+
+@media (max-width:359px){
+  .ptable th,.ptable td{padding:10px 2px}
+  .ptable .rm{font-size:12.5px}
+  .ptable .rm small{font-size:9.5px}
+  .ptable .own b{font-size:16px}
+  .ptable .own b i{font-size:10.5px}
+  .ptable .oth{font-size:10.5px}
+  .ptable thead th{font-size:10.5px}
+}
+
+@media (min-width:769px){
+  .ptable th,.ptable td{padding:15px 12px}
+  .ptable thead th{font-size:15px;letter-spacing:.02em}
+  .ptable .rm{font-size:17px;letter-spacing:.02em}
+  .ptable .rm small{font-size:12.5px;letter-spacing:0}
+  .ptable .own b{font-size:29px;letter-spacing:-.01em}
+  .ptable .own b i{font-size:15px}
+  .ptable .oth{font-size:16px;letter-spacing:0;white-space:nowrap}
+}
+
 </style>
 </head>
 <body>
@@ -903,7 +939,13 @@ ul,ol{list-style:none}
       <h2>料金プラン</h2>
       <p class="lead">お見積り後のキャンセルは無料です。費用が合わなければお断りいただけます。</p>
     </div>
-    <div class="pcards reveal"><div class="pc pc-pop"><div class="pc-rm">1K</div><div class="pc-tm">作業 1〜2時間</div><div class="pc-mid">35,000<i>円</i></div><div class="pc-range">25,000円 〜 75,000円</div></div><div class="pc"><div class="pc-rm">1DK</div><div class="pc-tm">作業 1〜2時間</div><div class="pc-mid">43,000<i>円</i></div><div class="pc-range">33,000円 〜 99,000円</div></div><div class="pc"><div class="pc-rm">1LDK</div><div class="pc-tm">作業 2〜3時間</div><div class="pc-mid">50,000<i>円</i></div><div class="pc-range">40,000円 〜 120,000円</div></div><div class="pc"><div class="pc-rm">2DK</div><div class="pc-tm">作業 2〜4時間</div><div class="pc-mid">65,000<i>円</i></div><div class="pc-range">55,000円 〜 165,000円</div></div><div class="pc"><div class="pc-rm">2LDK</div><div class="pc-tm">作業 3〜6時間</div><div class="pc-mid">80,000<i>円</i></div><div class="pc-range">70,000円 〜 210,000円</div></div><div class="pc"><div class="pc-rm">3DK</div><div class="pc-tm">作業 4〜6時間</div><div class="pc-mid">95,000<i>円</i></div><div class="pc-range">85,000円 〜 255,000円</div></div><div class="pc"><div class="pc-rm">3LDK</div><div class="pc-tm">作業 4〜7時間</div><div class="pc-mid">130,000<i>円</i></div><div class="pc-range">120,000円 〜 270,000円</div></div><div class="pc"><div class="pc-rm">4DK</div><div class="pc-tm">作業 5〜7時間</div><div class="pc-mid">150,000<i>円</i></div><div class="pc-range">140,000円 〜 300,000円</div></div><div class="pc"><div class="pc-rm">4LDK</div><div class="pc-tm">作業 4〜8時間</div><div class="pc-mid">180,000<i>円</i></div><div class="pc-range">170,000円 〜 340,000円</div></div></div>
+    <p class="swipe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 12h16"/><path d="M15 7l5 5-5 5"/></svg> 横にスクロールできます</p>
+    <div class="ptable-wrap reveal">
+      <table class="ptable">
+        <thead><tr><th>間取り</th><th class="own">料金の目安</th><th>料金の幅</th></tr></thead>
+        <tbody><tr><td class="rm">1K<small>作業 1〜2時間</small></td><td class="own"><b>35,000<i>円</i></b></td><td class="oth">25,000円 〜 75,000円</td></tr><tr><td class="rm">1DK<small>作業 1〜2時間</small></td><td class="own"><b>43,000<i>円</i></b></td><td class="oth">33,000円 〜 99,000円</td></tr><tr><td class="rm">1LDK<small>作業 2〜3時間</small></td><td class="own"><b>50,000<i>円</i></b></td><td class="oth">40,000円 〜 120,000円</td></tr><tr><td class="rm">2DK<small>作業 2〜4時間</small></td><td class="own"><b>65,000<i>円</i></b></td><td class="oth">55,000円 〜 165,000円</td></tr><tr><td class="rm">2LDK<small>作業 3〜6時間</small></td><td class="own"><b>80,000<i>円</i></b></td><td class="oth">70,000円 〜 210,000円</td></tr><tr><td class="rm">3DK<small>作業 4〜6時間</small></td><td class="own"><b>95,000<i>円</i></b></td><td class="oth">85,000円 〜 255,000円</td></tr><tr><td class="rm">3LDK<small>作業 4〜7時間</small></td><td class="own"><b>130,000<i>円</i></b></td><td class="oth">120,000円 〜 270,000円</td></tr><tr><td class="rm">4DK<small>作業 5〜7時間</small></td><td class="own"><b>150,000<i>円</i></b></td><td class="oth">140,000円 〜 300,000円</td></tr><tr><td class="rm">4LDK<small>作業 4〜8時間</small></td><td class="own"><b>180,000<i>円</i></b></td><td class="oth">170,000円 〜 340,000円</td></tr></tbody>
+      </table>
+    </div>
     <p class="pnote">
       ※表示価格はすべて税込です。<br>
       ※お荷物の量、階数、搬出経路、作業に要する人手によって金額が変動いたします。<br>
