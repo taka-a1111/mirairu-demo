@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- BUILD_TAG: mirairu_ihin_lp_ver5.7 / 2026-08-13 -->
+<!-- BUILD_TAG: mirairu_ihin_lp_ver6.0 / 2026-08-13 -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -1117,6 +1117,141 @@ ul,ol{list-style:none}
   .rm-tag{font-size:12px;padding:3px 12px;margin-top:7px}
 }
 
+
+/* =========================================================
+   ver6.0
+   ========================================================= */
+
+/* ---- ヘッダー：3つの丸アイコン ---- */
+.hd-cta{display:none}
+.hd-line{display:none}
+.hd-ico{display:flex;align-items:center;gap:8px}
+.hi{
+  display:flex;align-items:center;justify-content:center;
+  width:46px;height:46px;border-radius:12px;color:#fff;flex:none;
+  box-shadow:0 2px 0 rgba(0,0,0,.15);
+}
+.hi svg{width:24px;height:24px;stroke-width:1.9;fill:none}
+.hi-tel{background:var(--org)}
+.hi-line{background:var(--line)}
+.hi-mail{background:var(--pri)}
+@media (max-width:359px){
+  .hd-ico{gap:6px}
+  .hi{width:42px;height:42px;border-radius:11px}
+  .hi svg{width:22px;height:22px}
+}
+@media (min-width:769px){
+  .hd-tel{display:block}
+  .hd-ico{gap:10px}
+  .hi{width:52px;height:52px;border-radius:13px}
+  .hi svg{width:27px;height:27px}
+}
+
+/* ---- 本文CTAボタン：右端に▶ ---- */
+.cta-btn{padding-right:34px}
+.cb-arw{
+  position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  display:flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.22);z-index:2;
+}
+.cb-arw svg{width:13px;height:13px;stroke-width:3;fill:none}
+@media (min-width:769px){
+  .cta-btn{padding-right:30px}
+  .cb-arw{right:11px;width:22px;height:22px}
+  .cb-arw svg{width:12px;height:12px}
+}
+
+/* ---- 下部バー：アイコンを大きく ---- */
+.bar a{gap:7px}
+.bar svg{width:23px;height:23px;stroke-width:1.9;fill:none}
+@media (max-width:359px){
+  .bar svg{width:20px;height:20px}
+}
+
+/* ---- FVのタグを3列×2行に ---- */
+.tags{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;justify-content:stretch}
+.tags li{
+  display:flex;align-items:center;justify-content:center;
+  min-width:0;padding:6px 2px;text-align:center;letter-spacing:-.04em;
+  font-size:clamp(10px,3.1vw,13px);
+}
+@media (min-width:900px){
+  .tags{max-width:420px}
+  .tags li{font-size:clamp(11px,1vw,14px);padding:7px 4px;letter-spacing:0}
+}
+
+/* ---- FVの女性をもう少し大きく ---- */
+.fv-staff{width:38%;max-width:158px;right:16px}
+.fv-l{padding-right:33%}
+@media (max-width:359px){
+  .fv-staff{width:36%;right:12px}
+  .fv-l{padding-right:31%}
+}
+@media (min-width:769px) and (max-width:899px){
+  .fv-staff{width:238px;max-width:none;right:14px}
+  .fv-l{padding-right:33%}
+}
+@media (min-width:900px){
+  .fv-staff{width:clamp(190px,20vw,262px);max-width:none;right:6px}
+  .fv-l{padding-right:0}
+}
+
+/* ---- 料金表：4列構成 ---- */
+.ptable th:nth-child(1),.ptable td:nth-child(1){width:22%}
+.ptable th:nth-child(2),.ptable td:nth-child(2){width:30%}
+.ptable th:nth-child(3),.ptable td:nth-child(3){width:24%}
+.ptable th:nth-child(4),.ptable td:nth-child(4){width:24%}
+.ptable .oth span{display:block;font-weight:700;color:var(--ink-s)}
+.ptable .oth small{display:block;font-size:10.5px;color:var(--ink-m);margin-top:2px;letter-spacing:0}
+.ptable thead th{line-height:1.35}
+@media (max-width:359px){
+  .ptable .oth small{font-size:9.5px}
+}
+@media (min-width:769px){
+  .ptable .oth small{font-size:12.5px;margin-top:4px}
+}
+
+
+/* ---- 女性を大きくした分、見出しのサイズを調整 ---- */
+.fv-main{font-size:clamp(31px,10.2vw,45px)}
+.fv-sub{font-size:clamp(19px,5.9vw,29px)}
+@media (max-width:359px){
+  .fv-main{font-size:clamp(28px,9.6vw,33px)}
+  .fv-sub{font-size:clamp(17px,5.6vw,21px)}
+}
+@media (min-width:900px){
+  .fv-main{font-size:clamp(46px,4.6vw,70px)}
+  .fv-sub{font-size:clamp(28px,2.7vw,40px)}
+}
+
+
+/* ---- 料金表：4列時の文字サイズ調整 ---- */
+.ptable .rm{font-size:14.5px}
+.ptable .rm small{font-size:10.5px;letter-spacing:-.06em;white-space:nowrap}
+.ptable .own b{font-size:18px;letter-spacing:-.05em;white-space:nowrap}
+.ptable .own b i{font-size:11.5px}
+.ptable .oth span{font-size:12px;letter-spacing:-.05em;white-space:nowrap}
+.ptable th,.ptable td{padding:11px 3px}
+.ptable thead th{font-size:11.5px;letter-spacing:-.03em}
+@media (max-width:359px){
+  .ptable .rm{font-size:12.5px}
+  .ptable .rm small{font-size:9px}
+  .ptable .own b{font-size:15px}
+  .ptable .own b i{font-size:10px}
+  .ptable .oth span{font-size:10.5px}
+  .ptable thead th{font-size:10px}
+  .ptable th,.ptable td{padding:10px 2px}
+}
+@media (min-width:769px){
+  .ptable .rm{font-size:17px;letter-spacing:0}
+  .ptable .rm small{font-size:12.5px;letter-spacing:0}
+  .ptable .own b{font-size:26px;letter-spacing:-.01em}
+  .ptable .own b i{font-size:14px}
+  .ptable .oth span{font-size:16px;letter-spacing:0}
+  .ptable thead th{font-size:15px;letter-spacing:.02em}
+  .ptable th,.ptable td{padding:15px 8px}
+}
+
 </style>
 </head>
 <body>
@@ -1129,8 +1264,11 @@ ul,ol{list-style:none}
         <a href="tel:0120966612" class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.23 1.01L6.6 10.8z" fill="currentColor" stroke="none"/></svg>0120-966-612</a>
         <div class="s">【受付時間】年中無休 9:00〜21:00</div>
       </div>
-      <a href="https://lin.ee/vYpdIJZ" target="_blank" rel="noopener" class="hd-line" aria-label="LINEで相談"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 11.2c0-4-4-7.2-9-7.2s-9 3.2-9 7.2c0 3.6 3.2 6.6 7.5 7.1.3.06.7.2.8.45.1.23.06.58.03.81l-.13.78c-.04.23-.18.9.79.49s5.25-3.09 7.16-5.29C20.4 14.1 21 12.73 21 11.2z"/></svg></a>
-      <a href="#contact" class="hd-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/></svg><span class="lg">無料お見積もりはこちら</span><span class="sm">無料見積り</span></a>
+      <div class="hd-ico">
+        <a href="tel:0120966612" class="hi hi-tel" aria-label="電話する"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M15.05 5A5 5 0 0119 8.95M15.05 1A9 9 0 0123 8.94m-1 7.98v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
+        <a href="https://lin.ee/vYpdIJZ" target="_blank" rel="noopener" class="hi hi-line" aria-label="LINEで相談"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M21.5 10.8c0-4.3-4.3-7.8-9.5-7.8S2.5 6.5 2.5 10.8c0 3.85 3.4 7.08 8 7.69.31.07.73.2.84.47.1.24.06.62.03.87l-.14.83c-.04.25-.19.96.85.53s5.6-3.3 7.64-5.65c1.4-1.55 2.08-3.11 2.08-4.84z"/><path d="M9.2 8.6v4.4M9.2 8.6H7.4a.6.6 0 00-.6.6v3.2c0 .33.27.6.6.6h1.8M12.4 8.6v4.4M15 13V8.6l2.9 4.4V8.6"/></svg></a>
+        <a href="#contact" class="hi hi-mail" aria-label="無料お見積り"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><rect x="2" y="4.5" width="20" height="15" rx="2.5"/><path d="M3.5 7.2l7.3 5.1a2 2 0 002.4 0l7.3-5.1"/></svg></a>
+      </div>
     </div>
   </div>
 </header>
@@ -1189,8 +1327,8 @@ ul,ol{list-style:none}
     <p class="swipe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 12h16"/><path d="M15 7l5 5-5 5"/></svg> 横にスクロールできます</p>
     <div class="ptable-wrap reveal">
       <table class="ptable">
-        <thead><tr><th>間取り</th><th class="own">料金の目安</th><th>最低 〜 最大</th></tr></thead>
-        <tbody><tr><td class="rm">1K<small>作業 1〜2時間</small><span class="rm-tag">最安</span></td><td class="own"><b>35,000<i>円</i></b></td><td class="oth"><span>25,000円</span> 〜 <span>75,000円</span></td></tr><tr><td class="rm">1DK<small>作業 1〜2時間</small></td><td class="own"><b>43,000<i>円</i></b></td><td class="oth"><span>33,000円</span> 〜 <span>99,000円</span></td></tr><tr><td class="rm">1LDK<small>作業 2〜3時間</small></td><td class="own"><b>50,000<i>円</i></b></td><td class="oth"><span>40,000円</span> 〜 <span>120,000円</span></td></tr><tr><td class="rm">2DK<small>作業 2〜4時間</small></td><td class="own"><b>65,000<i>円</i></b></td><td class="oth"><span>55,000円</span> 〜 <span>165,000円</span></td></tr><tr><td class="rm">2LDK<small>作業 3〜6時間</small></td><td class="own"><b>80,000<i>円</i></b></td><td class="oth"><span>70,000円</span> 〜 <span>210,000円</span></td></tr><tr><td class="rm">3DK<small>作業 4〜6時間</small></td><td class="own"><b>95,000<i>円</i></b></td><td class="oth"><span>85,000円</span> 〜 <span>255,000円</span></td></tr><tr><td class="rm">3LDK<small>作業 4〜7時間</small></td><td class="own"><b>130,000<i>円</i></b></td><td class="oth"><span>120,000円</span> 〜 <span>270,000円</span></td></tr><tr><td class="rm">4DK<small>作業 5〜7時間</small></td><td class="own"><b>150,000<i>円</i></b></td><td class="oth"><span>140,000円</span> 〜 <span>300,000円</span></td></tr><tr><td class="rm">4LDK<small>作業 4〜8時間</small></td><td class="own"><b>180,000<i>円</i></b></td><td class="oth"><span>170,000円</span> 〜 <span>340,000円</span></td></tr></tbody>
+        <thead><tr><th>間取り</th><th class="own">最低料金</th><th>標準的な<br>作業費用</th><th>作業が多い<br>場合</th></tr></thead>
+        <tbody><tr><td class="rm">1K<small>作業 1〜2時間</small></td><td class="own"><b>25,000<i>円〜</i></b></td><td class="oth"><span>35,000円</span><small>目安</small></td><td class="oth"><span>75,000円</span><small>上限</small></td></tr><tr><td class="rm">1DK<small>作業 1〜2時間</small></td><td class="own"><b>33,000<i>円〜</i></b></td><td class="oth"><span>43,000円</span><small>目安</small></td><td class="oth"><span>99,000円</span><small>上限</small></td></tr><tr><td class="rm">1LDK<small>作業 2〜3時間</small></td><td class="own"><b>40,000<i>円〜</i></b></td><td class="oth"><span>50,000円</span><small>目安</small></td><td class="oth"><span>120,000円</span><small>上限</small></td></tr><tr><td class="rm">2DK<small>作業 2〜4時間</small></td><td class="own"><b>55,000<i>円〜</i></b></td><td class="oth"><span>65,000円</span><small>目安</small></td><td class="oth"><span>165,000円</span><small>上限</small></td></tr><tr><td class="rm">2LDK<small>作業 3〜6時間</small></td><td class="own"><b>70,000<i>円〜</i></b></td><td class="oth"><span>80,000円</span><small>目安</small></td><td class="oth"><span>210,000円</span><small>上限</small></td></tr><tr><td class="rm">3DK<small>作業 4〜6時間</small></td><td class="own"><b>85,000<i>円〜</i></b></td><td class="oth"><span>95,000円</span><small>目安</small></td><td class="oth"><span>255,000円</span><small>上限</small></td></tr><tr><td class="rm">3LDK<small>作業 4〜7時間</small></td><td class="own"><b>120,000<i>円〜</i></b></td><td class="oth"><span>130,000円</span><small>目安</small></td><td class="oth"><span>270,000円</span><small>上限</small></td></tr><tr><td class="rm">4DK<small>作業 5〜7時間</small></td><td class="own"><b>140,000<i>円〜</i></b></td><td class="oth"><span>150,000円</span><small>目安</small></td><td class="oth"><span>300,000円</span><small>上限</small></td></tr><tr><td class="rm">4LDK<small>作業 4〜8時間</small></td><td class="own"><b>170,000<i>円〜</i></b></td><td class="oth"><span>180,000円</span><small>目安</small></td><td class="oth"><span>340,000円</span><small>上限</small></td></tr></tbody>
       </table>
     </div>
     <p class="pnote">
@@ -1243,9 +1381,9 @@ ul,ol{list-style:none}
       <div class="cta-badges"><span>受付 9:00〜21:00</span><span>年中無休</span><span>出張費0円</span></div>
       <div class="cta-min">お電話1本で<b>最短即日</b>お伺い</div>
       <div class="cta-btns">
-        <a href="tel:0120966612" class="cta-btn cta-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.23 1.01L6.6 10.8z" fill="currentColor" stroke="none"/></svg><span><small>通話無料・受付 9:00〜21:00</small><em>0120-966-612</em></span></a>
-        <a href="https://lin.ee/vYpdIJZ" target="_blank" rel="noopener" class="cta-btn cta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 11.2c0-4-4-7.2-9-7.2s-9 3.2-9 7.2c0 3.6 3.2 6.6 7.5 7.1.3.06.7.2.8.45.1.23.06.58.03.81l-.13.78c-.04.23-.18.9.79.49s5.25-3.09 7.16-5.29C20.4 14.1 21 12.73 21 11.2z"/></svg><span><small>24時間受付中</small><em>LINEで無料お見積り</em></span></a>
-        <a href="#contact" class="cta-btn cta-form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg><span><small>24時間受付中</small><em>かんたん無料お見積り</em></span></a>
+        <a href="tel:0120966612" class="cta-btn cta-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M15.05 5A5 5 0 0119 8.95M15.05 1A9 9 0 0123 8.94m-1 7.98v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span><small>通話無料・受付 9:00〜21:00</small><em>0120-966-612</em></span><span class="cb-arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="arw-svg"><path d="M9 5l7 7-7 7"/></svg></span></a>
+        <a href="https://lin.ee/vYpdIJZ" target="_blank" rel="noopener" class="cta-btn cta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M21.5 10.8c0-4.3-4.3-7.8-9.5-7.8S2.5 6.5 2.5 10.8c0 3.85 3.4 7.08 8 7.69.31.07.73.2.84.47.1.24.06.62.03.87l-.14.83c-.04.25-.19.96.85.53s5.6-3.3 7.64-5.65c1.4-1.55 2.08-3.11 2.08-4.84z"/><path d="M9.2 8.6v4.4M9.2 8.6H7.4a.6.6 0 00-.6.6v3.2c0 .33.27.6.6.6h1.8M12.4 8.6v4.4M15 13V8.6l2.9 4.4V8.6"/></svg><span><small>24時間受付中</small><em>LINEで無料お見積り</em></span><span class="cb-arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="arw-svg"><path d="M9 5l7 7-7 7"/></svg></span></a>
+        <a href="#contact" class="cta-btn cta-form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><rect x="2" y="4.5" width="20" height="15" rx="2.5"/><path d="M3.5 7.2l7.3 5.1a2 2 0 002.4 0l7.3-5.1"/></svg><span><small>24時間受付中</small><em>かんたん無料お見積り</em></span><span class="cb-arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="arw-svg"><path d="M9 5l7 7-7 7"/></svg></span></a>
       </div>
     </div>
   </div>
@@ -1352,9 +1490,9 @@ ul,ol{list-style:none}
       <div class="cta-badges"><span>受付 9:00〜21:00</span><span>年中無休</span><span>出張費0円</span></div>
       <div class="cta-min">お電話1本で<b>最短即日</b>お伺い</div>
       <div class="cta-btns">
-        <a href="tel:0120966612" class="cta-btn cta-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.23 1.01L6.6 10.8z" fill="currentColor" stroke="none"/></svg><span><small>通話無料・受付 9:00〜21:00</small><em>0120-966-612</em></span></a>
-        <a href="https://lin.ee/vYpdIJZ" target="_blank" rel="noopener" class="cta-btn cta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 11.2c0-4-4-7.2-9-7.2s-9 3.2-9 7.2c0 3.6 3.2 6.6 7.5 7.1.3.06.7.2.8.45.1.23.06.58.03.81l-.13.78c-.04.23-.18.9.79.49s5.25-3.09 7.16-5.29C20.4 14.1 21 12.73 21 11.2z"/></svg><span><small>24時間受付中</small><em>LINEで無料お見積り</em></span></a>
-        <a href="#contact" class="cta-btn cta-form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg><span><small>24時間受付中</small><em>かんたん無料お見積り</em></span></a>
+        <a href="tel:0120966612" class="cta-btn cta-call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M15.05 5A5 5 0 0119 8.95M15.05 1A9 9 0 0123 8.94m-1 7.98v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span><small>通話無料・受付 9:00〜21:00</small><em>0120-966-612</em></span><span class="cb-arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="arw-svg"><path d="M9 5l7 7-7 7"/></svg></span></a>
+        <a href="https://lin.ee/vYpdIJZ" target="_blank" rel="noopener" class="cta-btn cta-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M21.5 10.8c0-4.3-4.3-7.8-9.5-7.8S2.5 6.5 2.5 10.8c0 3.85 3.4 7.08 8 7.69.31.07.73.2.84.47.1.24.06.62.03.87l-.14.83c-.04.25-.19.96.85.53s5.6-3.3 7.64-5.65c1.4-1.55 2.08-3.11 2.08-4.84z"/><path d="M9.2 8.6v4.4M9.2 8.6H7.4a.6.6 0 00-.6.6v3.2c0 .33.27.6.6.6h1.8M12.4 8.6v4.4M15 13V8.6l2.9 4.4V8.6"/></svg><span><small>24時間受付中</small><em>LINEで無料お見積り</em></span><span class="cb-arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="arw-svg"><path d="M9 5l7 7-7 7"/></svg></span></a>
+        <a href="#contact" class="cta-btn cta-form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><rect x="2" y="4.5" width="20" height="15" rx="2.5"/><path d="M3.5 7.2l7.3 5.1a2 2 0 002.4 0l7.3-5.1"/></svg><span><small>24時間受付中</small><em>かんたん無料お見積り</em></span><span class="cb-arw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="arw-svg"><path d="M9 5l7 7-7 7"/></svg></span></a>
       </div>
     </div>
   </div>
@@ -1494,9 +1632,9 @@ ul,ol{list-style:none}
 </footer>
 
 <nav class="bar">
-  <a href="tel:0120966612" class="b-tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.32.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.23 1.01L6.6 10.8z" fill="currentColor" stroke="none"/></svg>電話する</a>
-  <a href="https://lin.ee/vYpdIJZ" target="_blank" rel="noopener" class="b-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 11.2c0-4-4-7.2-9-7.2s-9 3.2-9 7.2c0 3.6 3.2 6.6 7.5 7.1.3.06.7.2.8.45.1.23.06.58.03.81l-.13.78c-.04.23-.18.9.79.49s5.25-3.09 7.16-5.29C20.4 14.1 21 12.73 21 11.2z"/></svg>LINE</a>
-  <a href="#contact" class="b-form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>見積り</a>
+  <a href="tel:0120966612" class="b-tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M15.05 5A5 5 0 0119 8.95M15.05 1A9 9 0 0123 8.94m-1 7.98v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>電話する</span></a>
+  <a href="https://lin.ee/vYpdIJZ" target="_blank" rel="noopener" class="b-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M21.5 10.8c0-4.3-4.3-7.8-9.5-7.8S2.5 6.5 2.5 10.8c0 3.85 3.4 7.08 8 7.69.31.07.73.2.84.47.1.24.06.62.03.87l-.14.83c-.04.25-.19.96.85.53s5.6-3.3 7.64-5.65c1.4-1.55 2.08-3.11 2.08-4.84z"/><path d="M9.2 8.6v4.4M9.2 8.6H7.4a.6.6 0 00-.6.6v3.2c0 .33.27.6.6.6h1.8M12.4 8.6v4.4M15 13V8.6l2.9 4.4V8.6"/></svg><span>LINE</span></a>
+  <a href="#contact" class="b-form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><rect x="2" y="4.5" width="20" height="15" rx="2.5"/><path d="M3.5 7.2l7.3 5.1a2 2 0 002.4 0l7.3-5.1"/></svg><span>見積り</span></a>
 </nav>
 
 <script>
