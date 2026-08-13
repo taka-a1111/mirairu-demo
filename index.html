@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- BUILD_TAG: mirairu_ihin_lp_ver5.2 / 2026-08-13 -->
+<!-- BUILD_TAG: mirairu_ihin_lp_ver5.3 / 2026-08-13 -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -970,6 +970,45 @@ ul,ol{list-style:none}
   .cta-btn svg{width:27px;height:27px}
 }
 
+
+/* ---- 写真の添付：撮影と選択の2ボタン ---- */
+.fdrop{display:block;border:2px dashed var(--bd);border-radius:10px;padding:14px 12px;background:#FAFCFE;cursor:default}
+.fd-btns{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.fd-btn{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  min-height:88px;padding:12px 6px;border-radius:9px;cursor:pointer;
+  font-family:var(--zen);font-weight:700;font-size:14px;line-height:1.3;text-align:center;
+  transition:filter .15s ease;
+}
+.fd-btn:hover{filter:brightness(1.04)}
+.fd-btn:active{transform:translateY(1px)}
+.fd-btn input{display:none}
+.fd-btn svg{width:30px;height:30px;stroke-width:1.6}
+.fd-cam{background:var(--pri);color:#fff}
+.fd-cam span{white-space:nowrap}
+.fd-pick span{white-space:nowrap}
+.fd-pick{background:#fff;color:var(--pri-dd);border:2px solid var(--pri)}
+.fd-note{margin-top:10px;text-align:center;font-size:12.5px;color:var(--ink-m)}
+.flist{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.flist .fl-head{width:100%;text-align:center;font-family:var(--zen);font-weight:700;
+  font-size:12.5px;color:var(--pri-dd);margin-bottom:2px}
+.flist .fl-item{background:var(--pri-l);color:var(--pri-dd);font-size:11.5px;
+  padding:4px 10px;border-radius:999px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+@media (max-width:359px){
+  .fd-btns{gap:6px}
+  .fd-btn{min-height:78px;font-size:12px;padding:10px 3px;letter-spacing:-.04em}
+  .fd-btn svg{width:25px;height:25px}
+  .fd-note{font-size:11px}
+}
+@media (min-width:769px){
+  .fdrop{padding:18px 16px}
+  .fd-btns{gap:14px}
+  .fd-btn{min-height:96px;font-size:16px}
+  .fd-btn svg{width:34px;height:34px}
+  .fd-note{font-size:13.5px}
+}
+
 </style>
 </head>
 <body>
@@ -1311,8 +1350,16 @@ ul,ol{list-style:none}
       <div class="fg"><div class="fl">ご相談内容<span class="opt2">任意</span></div>
         <textarea name="message" placeholder="お部屋の状況、探してほしい品、ご希望の作業日などをご記入ください。"></textarea></div>
       <div class="fg"><div class="fl">お部屋の写真<span class="opt2">任意</span></div>
-        <label class="fdrop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 16V4"/><path d="M8 8l4-4 4 4"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg><p>タップして写真を選択（複数可・1枚10MBまで）</p>
-          <input type="file" id="fileInput" multiple accept="image/*"><span class="flist" id="fileList"></span></label></div>
+        <div class="fdrop">
+          <div class="fd-btns">
+            <label class="fd-btn fd-cam"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 7.5h3.4l1.6-2.4h8l1.6 2.4H21a1 1 0 011 1v9a1 1 0 01-1 1H3a1 1 0 01-1-1v-9a1 1 0 011-1z"/><circle cx="12" cy="13" r="3.6"/></svg><span>その場で撮影する</span>
+              <input type="file" id="camInput" accept="image/*" capture="environment"></label>
+            <label class="fd-btn fd-pick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 16V4"/><path d="M8 8l4-4 4 4"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg><span>写真を選ぶ</span>
+              <input type="file" id="fileInput" multiple accept="image/*"></label>
+          </div>
+          <p class="fd-note">複数枚を選べます。1枚10MBまで。</p>
+          <div class="flist" id="fileList"></div>
+        </div></div>
       <p class="fpriv"><a href="./privacy.html">プライバシーポリシー</a>に同意のうえ、送信してください。</p>
       <button type="button" class="subm" id="submitBtn">この内容で送信する</button>
       <div class="fmsg" id="formMsg"></div>
@@ -1359,11 +1406,24 @@ function syncCh(){document.querySelectorAll('.ch').forEach(function(l){l.classLi
 document.querySelectorAll('.ch input').forEach(function(i){i.addEventListener('change',syncCh);});
 syncCh();
 
-var fi=document.getElementById('fileInput');
-if(fi){fi.addEventListener('change',function(){
-  var n=Array.prototype.map.call(fi.files,function(f){return f.name;});
-  document.getElementById('fileList').textContent=n.length?n.join(' / '):'';
-});}
+var picked=[];
+function renderFiles(){
+  var box=document.getElementById('fileList');
+  if(!box) return;
+  if(!picked.length){box.innerHTML='';return;}
+  box.innerHTML='<span class="fl-head">選択中の写真（'+picked.length+'枚）</span>'
+    + picked.map(function(n){return '<span class="fl-item">'+n+'</span>';}).join('');
+}
+['fileInput','camInput'].forEach(function(id){
+  var el=document.getElementById(id);
+  if(!el) return;
+  el.addEventListener('change',function(){
+    Array.prototype.forEach.call(el.files,function(f){
+      if(picked.indexOf(f.name)===-1) picked.push(f.name);
+    });
+    renderFiles();
+  });
+});
 
 document.getElementById('submitBtn').addEventListener('click',function(){
   var m=document.getElementById('formMsg');
