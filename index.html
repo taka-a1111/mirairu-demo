@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- BUILD_TAG: mirairu_ihin_lp_ver4.1 / 2026-08-13 -->
+<!-- BUILD_TAG: mirairu_ihin_lp_ver4.2 / 2026-08-13 -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -755,6 +755,85 @@ ul,ol{list-style:none}
   .area-note{font-size:14.5px;margin-top:18px}
 }
 
+
+/* =========================================================
+   ver4.2  スマホでもスタッフ写真を表示（PCと同じ見え方に）
+   ========================================================= */
+.fv-in{position:relative}
+
+/* ---- ファーストビュー：左にテキスト、右にスタッフ ---- */
+.fv-staff{
+  display:block;position:absolute;right:-10px;top:46px;
+  width:35%;max-width:142px;z-index:1;pointer-events:none;
+}
+.fv-staff img{filter:drop-shadow(0 5px 12px rgba(46,109,180,.20));max-height:266px;width:auto;margin-left:auto}
+.fv-l{text-align:left;padding-right:31%}
+.fv-slash{justify-content:flex-start;font-size:14px;gap:6px;white-space:nowrap}
+.fv-slash .lg{display:none}
+.fv-slash::before,.fv-slash::after{height:20px}
+.tags{justify-content:flex-start;gap:5px}
+.tags li{font-size:11.5px;padding:4px 10px}
+.fv-copy{text-align:left}
+.fv-main{font-size:43px}
+.fv-sub{font-size:26px;border-bottom-width:4px}
+.fv-badge{font-size:14px;padding:5px 8px;box-shadow:0 3px 0 var(--org-d)}
+.fv-r{margin-top:14px}
+.fv-marugoto{text-align:left;font-size:20px}
+
+/* ---- CTAバンド：吹き出しの左にスタッフ ---- */
+.cta-staff{display:block;width:92px;flex:none;align-self:flex-end;margin-bottom:-10px}
+.cta-head{align-items:flex-end;gap:0}
+.cta-bubble{flex:1;min-width:0;text-align:left;padding:14px 15px}
+.cta-bubble h3{font-size:19px;line-height:1.45}
+.cta-bubble h3 em{font-size:24px}
+.cta-bubble p{font-size:12px}
+.cta-bubble::after{
+  content:"";position:absolute;left:-11px;bottom:26px;
+  border-top:9px solid transparent;border-bottom:9px solid transparent;border-right:13px solid #fff;
+}
+
+@media (max-width:359px){
+  .fv-main{font-size:37px}
+  .fv-sub{font-size:22px}
+  .fv-note{font-size:11.5px;line-height:1.7}
+  .bar a{font-size:12.5px;gap:4px;padding:12px 1px;letter-spacing:0}
+  .bar svg{width:16px;height:16px}
+  .bar{gap:5px;padding:6px 6px calc(6px + env(safe-area-inset-bottom))}
+  .fv-l{padding-right:30%}
+  .fv-staff{width:33%}
+  .fv-marugoto{font-size:18px}
+  .cta-staff{width:76px}
+  .cta-bubble h3{font-size:17px}
+  .cta-bubble h3 em{font-size:21px}
+}
+
+@media (min-width:769px){
+  .fv-l{padding-right:0}
+  .fv-slash{font-size:19px}
+  .fv-slash .lg{display:inline}
+  .fv-slash .sm{display:none}
+  .tags li{font-size:13.5px;padding:6px 15px}
+  .fv-main{font-size:74px}
+  .fv-sub{font-size:44px;border-bottom-width:5px}
+  .fv-badge{font-size:21px;padding:9px 12px}
+  .fv-marugoto{font-size:27px}
+  .fv-staff{width:min(196px,18vw);max-width:none;right:auto;left:6px;top:auto;bottom:0}
+  .fv-staff img{max-height:none;width:100%}
+  .cta-staff{width:168px;margin-bottom:-14px}
+  .cta-bubble{flex:none;text-align:center;padding:22px 30px}
+  .cta-bubble h3{font-size:26px}
+  .cta-bubble h3 em{font-size:34px}
+  .cta-bubble p{font-size:14.5px}
+  .cta-head{gap:12px}
+}
+
+
+/* ---- タブレット縦（600〜768px）でのスタッフ写真の高さ調整 ---- */
+@media (min-width:560px) and (max-width:768px){
+  .fv-staff img{max-height:222px}
+  .fv-staff{top:40px}
+}
+
 </style>
 </head>
 <body>
@@ -777,7 +856,7 @@ ul,ol{list-style:none}
 <section class="fv" id="top">
   <div class="wrap fv-in">
     <div class="fv-l">
-      <div class="fv-slash">京都・滋賀・大阪で業者をお探しなら</div>
+      <div class="fv-slash"><span class="lg">京都・滋賀・大阪で業者をお探しなら</span><span class="sm">京都・滋賀・大阪 対応</span></div>
       <ul class="tags">
         <li>遺品整理</li><li>ゴミ屋敷清掃</li><li>生前整理</li><li>空き家整理</li><li>買取</li><li>供養</li>
       </ul>
