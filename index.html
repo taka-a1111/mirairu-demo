@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- BUILD_TAG: mirairu_ihin_lp_ver6.8 / 2026-08-13 -->
+<!-- BUILD_TAG: mirairu_ihin_lp_ver7.0 / 2026-08-13 -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -1382,6 +1382,192 @@ ul,ol{list-style:none}
   .rc-b p{font-size:14px}
 }
 
+
+/* =========================================================
+   ver7.0  文字装飾の強化
+   ========================================================= */
+
+/* ---- FV：白フチ＋グラデーション＋落ち影 ---- */
+.fv-main{
+  background:linear-gradient(180deg,#4E86C6 0%,#2E6DB4 55%,#245A99 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-stroke:0;
+  text-shadow:none;position:relative;
+  filter:drop-shadow(3px 3px 0 #fff) drop-shadow(-3px 3px 0 #fff)
+         drop-shadow(3px -3px 0 #fff) drop-shadow(-3px -3px 0 #fff)
+         drop-shadow(0 5px 5px rgba(46,109,180,.28));
+}
+.fv-sub{
+  background:linear-gradient(180deg,#F9A23F 0%,#F5921E 50%,#DD7A08 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:none;border-bottom:0;padding-bottom:0;
+  filter:drop-shadow(2.5px 2.5px 0 #fff) drop-shadow(-2.5px 2.5px 0 #fff)
+         drop-shadow(2.5px -2.5px 0 #fff) drop-shadow(-2.5px -2.5px 0 #fff)
+         drop-shadow(0 4px 4px rgba(221,122,8,.26));
+}
+.fv-sub-wrap{display:inline-block;position:relative;padding-bottom:9px}
+.fv-sub-wrap::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:5px;border-radius:3px;
+  background:linear-gradient(90deg,var(--pri) 0%,var(--pri-d) 100%);
+}
+
+/* ---- FV：バッジを立体的に ---- */
+.fv-badge{
+  background:linear-gradient(180deg,#F9A23F 0%,#F5921E 100%);
+  border-radius:9px;box-shadow:0 3px 0 var(--org-d),0 5px 8px rgba(221,122,8,.3);
+  text-shadow:0 1px 1px rgba(0,0,0,.16);
+}
+
+/* ---- FV：料金の数字 ---- */
+.pnum{
+  background:linear-gradient(180deg,#FBAF52 0%,#F5921E 48%,#DD7A08 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:none;
+  filter:drop-shadow(2.5px 2.5px 0 #fff) drop-shadow(-2.5px 2.5px 0 #fff)
+         drop-shadow(2.5px -2.5px 0 #fff) drop-shadow(-2.5px -2.5px 0 #fff)
+         drop-shadow(0 4px 5px rgba(221,122,8,.3));
+}
+.pyen,.pkara{
+  text-shadow:2px 2px 0 #fff,-2px 2px 0 #fff,2px -2px 0 #fff,-2px -2px 0 #fff,
+              0 3px 3px rgba(221,122,8,.22);
+}
+
+/* ---- FV：タグを立体的に ---- */
+.tags li{
+  background:linear-gradient(180deg,#5B92D0 0%,#4C86C6 100%);
+  border-radius:7px;box-shadow:0 2px 0 var(--pri-d),0 3px 5px rgba(46,109,180,.22);
+  text-shadow:0 1px 1px rgba(0,0,0,.14);
+}
+
+/* ---- FV：キャッチに白フチ ---- */
+.fv-slash{
+  text-shadow:2px 2px 0 #fff,-2px 2px 0 #fff,2px -2px 0 #fff,-2px -2px 0 #fff;
+}
+.fv-marugoto{
+  text-shadow:2px 2px 0 #fff,-2px 2px 0 #fff,2px -2px 0 #fff,-2px -2px 0 #fff,
+              0 3px 4px rgba(26,49,77,.14);
+}
+.fv-marugoto .o{color:var(--org)}
+
+/* ---- セクション見出し：グラデーション＋点線飾り ---- */
+.sec-h h2{
+  background:linear-gradient(180deg,#4E86C6 0%,#2E6DB4 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.sec-h h2 em{
+  background:linear-gradient(180deg,#F9A23F 0%,#DD7A08 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  font-style:normal;
+}
+.sec-h .en{
+  display:inline-flex;align-items:center;gap:9px;
+}
+.sec-h .en::before,.sec-h .en::after{
+  content:"";width:26px;height:3px;border-radius:2px;
+  background-image:radial-gradient(circle,var(--org) 1.4px,transparent 1.5px);
+  background-size:7px 3px;opacity:.9;
+}
+
+/* ---- 「まるごと解決」見出し ---- */
+.solve h2{
+  background:linear-gradient(180deg,#4E86C6 0%,#2E6DB4 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.solve h2 em{
+  background:linear-gradient(180deg,#F9A23F 0%,#DD7A08 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.solve .b1{
+  background:#fff;border:2px solid var(--pri);
+  box-shadow:0 2px 0 rgba(46,109,180,.18);
+}
+
+/* ---- 数字・金額の強調 ---- */
+.ptable .own b{
+  background:linear-gradient(180deg,#FBAF52 0%,#DD7A08 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.tr-i .b{
+  background:linear-gradient(180deg,#4E86C6 0%,#245A99 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.rc-n{
+  background:linear-gradient(180deg,#F9A23F 0%,#DD7A08 100%);
+  filter:drop-shadow(0 2px 3px rgba(221,122,8,.3));
+}
+.rc-b h3{
+  background:linear-gradient(180deg,#F9A23F 0%,#DD7A08 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.fc-n{
+  background:linear-gradient(180deg,#5B92D0 0%,#2E6DB4 100%);
+  box-shadow:0 2px 4px rgba(46,109,180,.28);
+}
+.cta-bubble h3 em{
+  background:linear-gradient(180deg,#F9A23F 0%,#DD7A08 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.cta-min b{
+  background:linear-gradient(180deg,#F9A23F 0%,#DD7A08 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+
+/* ---- 帯・バッジの立体感 ---- */
+.case-h{
+  background:linear-gradient(180deg,#5B92D0 0%,#4C86C6 100%);
+  text-shadow:0 1px 1px rgba(0,0,0,.12);
+}
+.ic-t{background:linear-gradient(180deg,#EDF3FB 0%,#E2ECF8 100%)}
+.opt{background:linear-gradient(180deg,#EDF3FB 0%,#E2ECF8 100%)}
+.ba-tag-b{background:linear-gradient(180deg,#3C7FC0 0%,#245A99 100%)}
+.ba-tag-a{background:linear-gradient(180deg,#F9A23F 0%,#DD7A08 100%)}
+.bubble{
+  background:linear-gradient(180deg,#5B92D0 0%,#4C86C6 100%);
+  text-shadow:0 1px 1px rgba(0,0,0,.12);
+}
+.svc-h{text-shadow:0 1px 2px rgba(0,0,0,.14)}
+.inc-band{text-shadow:0 1px 2px rgba(0,0,0,.14)}
+
+/* Safari以外でグラデーション文字が消える環境への保険 */
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){
+  .fv-main,.pnum,.sec-h h2,.solve h2,.ptable .own b,.tr-i .b,.rc-b h3{color:var(--head);background:none}
+  .fv-sub,.sec-h h2 em,.solve h2 em,.cta-bubble h3 em,.cta-min b{color:var(--org);background:none}
+}
+
+
+/* ---- FVの大文字：白フチは text-shadow で、塗りは単色に戻す ---- */
+.fv-main{
+  background:none;-webkit-background-clip:border-box;background-clip:border-box;
+  color:var(--pri-d);filter:none;
+  text-shadow:
+    3px 3px 0 #fff, -3px 3px 0 #fff, 3px -3px 0 #fff, -3px -3px 0 #fff,
+    3px 0 0 #fff, -3px 0 0 #fff, 0 3px 0 #fff, 0 -3px 0 #fff,
+    0 6px 0 rgba(46,109,180,.22), 0 9px 10px rgba(46,109,180,.22);
+}
+.fv-sub{
+  background:none;-webkit-background-clip:border-box;background-clip:border-box;
+  color:var(--org);filter:none;
+  text-shadow:
+    2.5px 2.5px 0 #fff, -2.5px 2.5px 0 #fff, 2.5px -2.5px 0 #fff, -2.5px -2.5px 0 #fff,
+    2.5px 0 0 #fff, -2.5px 0 0 #fff, 0 2.5px 0 #fff, 0 -2.5px 0 #fff,
+    0 5px 0 rgba(221,122,8,.2), 0 8px 9px rgba(221,122,8,.2);
+}
+.pnum{
+  background:none;-webkit-background-clip:border-box;background-clip:border-box;
+  color:var(--org);filter:none;
+  text-shadow:
+    3px 3px 0 #fff, -3px 3px 0 #fff, 3px -3px 0 #fff, -3px -3px 0 #fff,
+    3px 0 0 #fff, -3px 0 0 #fff, 0 3px 0 #fff, 0 -3px 0 #fff,
+    0 6px 0 rgba(221,122,8,.22), 0 9px 10px rgba(221,122,8,.22);
+}
+.pyen,.pkara{
+  color:var(--org);
+  text-shadow:
+    2px 2px 0 #fff, -2px 2px 0 #fff, 2px -2px 0 #fff, -2px -2px 0 #fff,
+    2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff,
+    0 4px 0 rgba(221,122,8,.2);
+}
+
 </style>
 </head>
 <body>
@@ -1413,7 +1599,7 @@ ul,ol{list-style:none}
       </ul>
       <div class="fv-copy">
         <div><span class="fv-badge">最短<br>即日</span><span class="fv-main">遺品整理</span></div>
-        <div class="fv-sub">まるごとおまかせ！</div>
+        <div class="fv-sub-wrap"><span class="fv-sub">まるごとおまかせ！</span></div>
       </div>
     </div>
 
