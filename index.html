@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- BUILD_TAG: mirairu_ihin_lp_ver7.1 / 2026-08-13 -->
+<!-- BUILD_TAG: mirairu_ihin_lp_ver7.2 / 2026-08-13 -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -1568,6 +1568,37 @@ ul,ol{list-style:none}
     0 4px 0 rgba(221,122,8,.2);
 }
 
+
+/* ---- 固定バー：電話のみに ---- */
+.bar{grid-template-columns:1fr;padding:8px 14px calc(8px + env(safe-area-inset-bottom))}
+.bar a{
+  gap:11px;padding:13px 8px;border-radius:10px;
+  background:linear-gradient(180deg,#F9A23F 0%,#F5921E 100%);
+  box-shadow:0 3px 0 var(--org-d),0 4px 10px rgba(221,122,8,.28);
+}
+.bar a::before{inset:5px;border-width:2px;border-radius:6px}
+.bar svg{width:28px;height:28px;stroke-width:1.9}
+.bar span{display:block;text-align:center;line-height:1.25}
+.bar small{
+  display:block;font-family:var(--gothic);font-weight:700;font-size:11.5px;
+  opacity:.96;margin-bottom:2px;letter-spacing:0;
+}
+.bar em{
+  display:block;font-style:normal;font-family:var(--zen);font-weight:900;
+  font-size:19px;letter-spacing:.02em;
+}
+@media (max-width:359px){
+  .bar{padding:7px 10px calc(7px + env(safe-area-inset-bottom))}
+  .bar a{gap:8px;padding:11px 6px}
+  .bar svg{width:24px;height:24px}
+  .bar small{font-size:10.5px}
+  .bar em{font-size:16.5px}
+}
+@media (min-width:560px) and (max-width:768px){
+  .bar a{max-width:520px;margin:0 auto}
+  .bar em{font-size:21px}
+}
+
 </style>
 </head>
 <body>
@@ -1937,9 +1968,7 @@ ul,ol{list-style:none}
 </footer>
 
 <nav class="bar">
-  <a href="tel:0120966612" class="b-tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M15.05 5A5 5 0 0119 8.95M15.05 1A9 9 0 0123 8.94m-1 7.98v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span>電話する</span></a>
-  <a href="https://lin.ee/vYpdIJZ" target="_blank" rel="noopener" class="b-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M21.5 10.8c0-4.3-4.3-7.8-9.5-7.8S2.5 6.5 2.5 10.8c0 3.85 3.4 7.08 8 7.69.31.07.73.2.84.47.1.24.06.62.03.87l-.14.83c-.04.25-.19.96.85.53s5.6-3.3 7.64-5.65c1.4-1.55 2.08-3.11 2.08-4.84z"/><path d="M9.2 8.6v4.4M9.2 8.6H7.4a.6.6 0 00-.6.6v3.2c0 .33.27.6.6.6h1.8M12.4 8.6v4.4M15 13V8.6l2.9 4.4V8.6"/></svg><span>LINE</span></a>
-  <a href="#contact" class="b-form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><rect x="2" y="4.5" width="20" height="15" rx="2.5"/><path d="M3.5 7.2l7.3 5.1a2 2 0 002.4 0l7.3-5.1"/></svg><span>見積り</span></a>
+  <a href="tel:0120966612" class="b-tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ><path d="M15.05 5A5 5 0 0119 8.95M15.05 1A9 9 0 0123 8.94m-1 7.98v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><span><small>通話無料・受付 9:00〜21:00</small><em>電話で無料お見積り</em></span></a>
 </nav>
 
 <script>
