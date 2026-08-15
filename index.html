@@ -1641,6 +1641,182 @@ ul,ol{list-style:none}
   .cta-staff::after{top:23%}
 }
 
+
+/* =========================================================
+   ver7.3  PC版ファーストビューの密度を上げる
+   ========================================================= */
+@media (min-width:900px){
+  /* ---- 高さを確保して画面上部を占有 ---- */
+  .fv{padding:80px 0 0;min-height:min(640px,86vh);display:flex;align-items:stretch}
+  .fv-in{
+    grid-template-columns:1.02fr 1.1fr;gap:30px;align-items:center;
+    padding:34px 24px 40px;width:100%;
+  }
+
+  /* ---- 背景の密度を上げる ---- */
+  .fv::before{
+    top:-18%;left:auto;right:-28%;width:88%;height:140%;transform:rotate(17deg);
+    background:linear-gradient(180deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.34) 100%);
+  }
+  .fv::after{
+    left:-22%;right:auto;width:74%;height:130%;transform:rotate(-15deg);
+    background:rgba(255,255,255,.40);
+  }
+  .fv-in::before{
+    content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;
+    background-image:radial-gradient(rgba(46,109,180,.13) 1.6px, transparent 1.7px);
+    background-size:26px 26px;
+    -webkit-mask-image:linear-gradient(115deg,#000 0%,transparent 62%);
+    mask-image:linear-gradient(115deg,#000 0%,transparent 62%);
+  }
+
+  /* ---- 見出しを大きく ---- */
+  .fv-slash{font-size:clamp(18px,1.65vw,24px);margin-bottom:18px}
+  .fv-slash::before,.fv-slash::after{height:28px;width:3.5px}
+  .tags{max-width:490px;gap:8px;margin-bottom:22px}
+  .tags li{font-size:clamp(13px,1.15vw,16px);padding:9px 6px;border-radius:8px}
+  .fv-badge{font-size:clamp(22px,1.85vw,27px);padding:11px 14px;border-radius:11px}
+  .fv-main{font-size:clamp(62px,5.9vw,88px)}
+  .fv-sub{font-size:clamp(38px,3.5vw,52px)}
+  .fv-sub-wrap{padding-bottom:12px}
+  .fv-sub-wrap::after{height:7px}
+
+  /* ---- 右カラムを一回り大きく ---- */
+  .fv-r{padding-right:clamp(210px,20vw,290px)}
+  .fv-marugoto{font-size:clamp(24px,2.3vw,34px);margin-bottom:18px}
+  .ba{gap:10px;margin-bottom:22px}
+  .ba-i{border-width:4px;border-radius:10px}
+  .ba-i span{font-size:14px;padding:5px 16px 5px 11px}
+  .ba-ar{border-left-width:20px;border-top-width:15px;border-bottom-width:15px}
+  .web-off{font-size:clamp(15px,1.3vw,18px);padding:10px 14px;border-radius:10px}
+  .pnum{font-size:clamp(74px,6.6vw,102px)}
+  .pyen{font-size:clamp(32px,2.7vw,42px)}
+  .pkara{font-size:clamp(26px,2.2vw,34px)}
+  .fv-note{font-size:14.5px;margin-top:12px;line-height:1.85}
+
+  /* ---- 女性を縦いっぱいに ---- */
+  .fv-staff{
+    width:clamp(240px,25vw,330px);max-width:none;right:-14px;bottom:0;top:auto;
+  }
+  .fv-staff img{max-height:none;width:100%}
+
+  /* ---- 安心バッジを重ねて一体感を出す ---- */
+  .circles{margin-top:-30px}
+  .trust{padding:26px 22px}
+}
+
+@media (min-width:1280px){
+  .fv-in{padding:44px 24px 48px}
+  .fv-r{padding-right:clamp(250px,21vw,330px)}
+}
+
+
+/* ---- PC版FV：横幅を広げ、写真を縦いっぱいに ---- */
+@media (min-width:900px){
+  .fv-in{
+    max-width:1280px;
+    grid-template-columns:.66fr 1fr;
+    gap:32px;
+  }
+  .fv-main{font-size:clamp(56px,5.4vw,86px)}
+  .fv-sub{font-size:clamp(32px,3.05vw,46px)}
+  .tags{max-width:none}
+  .tags li{font-size:clamp(12.5px,1.05vw,15px);padding:8px 5px}
+
+  .fv-r{padding-right:clamp(230px,25vw,380px)}
+  .fv-marugoto{font-size:clamp(22px,2.1vw,31px)}
+  .pnum{font-size:clamp(64px,6vw,94px)}
+  .pyen{font-size:clamp(28px,2.5vw,39px)}
+  .pkara{font-size:clamp(23px,2vw,32px)}
+
+  /* 写真をFVの高さいっぱいに */
+  .fv-staff{
+    top:auto;bottom:0;right:clamp(-20px,-1vw,0px);
+    width:auto;height:calc(100% - 46px);
+  }
+  .fv-staff img{height:100%;width:auto;max-height:none;margin-left:auto}
+}
+@media (min-width:1280px){
+  .fv-r{padding-right:clamp(290px,26vw,400px)}
+}
+
+
+/* ---- PC版FV：写真サイズを画面幅に連動させる ---- */
+@media (min-width:900px){
+  .fv-staff{
+    top:auto;bottom:0;right:clamp(-16px,-.8vw,0px);
+    width:clamp(212px,23vw,342px);height:auto;
+  }
+  .fv-staff img{height:auto;width:100%;max-height:none}
+  .fv-r{padding-right:clamp(252px,25.5vw,392px)}
+}
+
+
+/* ---- 1100px以上で2カラム。左列を広げて折り返しを防ぐ ---- */
+@media (min-width:1100px){
+  .fv-in{max-width:1360px;grid-template-columns:.80fr 1fr;gap:34px}
+  .fv-r{padding-right:clamp(268px,25vw,396px)}
+  .fv-staff{width:clamp(228px,23vw,346px)}
+}
+
+/* ---- 900〜1099px はスマホと同じ1カラムに戻す ---- */
+@media (min-width:900px) and (max-width:1099px){
+  .fv{min-height:0;display:block;padding:78px 0 0}
+  .fv-in{display:block;max-width:1080px;padding:30px 26px 34px}
+  .fv-in::before{display:none}
+  .fv-l{padding-right:34%;text-align:left}
+  .fv-r{padding-right:0;margin-top:20px}
+  .fv-slash{justify-content:flex-start}
+  .tags{grid-template-columns:repeat(3,1fr);max-width:460px}
+  .fv-copy{text-align:left}
+  .fv-marugoto{text-align:left}
+  .fv-price{justify-content:flex-start}
+  .fv-note{text-align:left}
+  .ba{max-width:520px;margin:0 0 20px}
+  .fv-main{font-size:clamp(50px,5vw,58px)}
+  .fv-sub{font-size:clamp(30px,3vw,35px)}
+  .pnum{font-size:clamp(58px,5.6vw,66px)}
+  .pyen{font-size:clamp(26px,2.4vw,30px)}
+  .pkara{font-size:clamp(21px,2vw,25px)}
+  .fv-staff{
+    top:52px;bottom:auto;right:20px;
+    width:clamp(230px,26vw,290px);height:auto;
+  }
+  .circles{margin-top:0}
+}
+
+
+/* ---- 微調整：折り返しと重なりの解消 ---- */
+@media (min-width:900px) and (max-width:1099px){
+  .fv-staff{width:clamp(206px,22vw,250px);top:56px}
+  .fv-l{padding-right:30%}
+}
+@media (min-width:1100px){
+  .fv-main{font-size:clamp(54px,4.6vw,80px)}
+  .pnum{font-size:clamp(58px,5.3vw,92px)}
+  .pyen{font-size:clamp(26px,2.3vw,38px)}
+  .pkara{font-size:clamp(21px,1.9vw,31px)}
+}
+
+
+/* ---- PC版FV：Before/Afterを大きく ---- */
+@media (min-width:1100px){
+  .ba{max-width:none;gap:12px}
+  .ba-i img{aspect-ratio:3/2}
+  .ba-i span{font-size:15px;padding:6px 18px 6px 12px}
+  .fv-marugoto{font-size:clamp(24px,2.2vw,34px);margin-bottom:20px}
+  .fv-r{padding-right:clamp(258px,24vw,382px)}
+  .fv-note{font-size:15px}
+}
+
+
+/* ---- 1440px以上：右カラムの余白を詰めてBefore/Afterを最大化 ---- */
+@media (min-width:1440px){
+  .fv-in{max-width:1440px}
+  .fv-r{padding-right:clamp(300px,22vw,400px)}
+  .fv-staff{right:0}
+}
+
 </style>
 </head>
 <body>
