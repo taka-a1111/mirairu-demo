@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- BUILD_TAG: mirairu_ihin_lp_ver7.2 / 2026-08-13 -->
+<!-- BUILD_TAG: mirairu_ihin_lp_ver7.3 / 2026-08-13 -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -1597,6 +1597,48 @@ ul,ol{list-style:none}
 @media (min-width:560px) and (max-width:768px){
   .bar a{max-width:520px;margin:0 auto}
   .bar em{font-size:21px}
+}
+
+
+/* ---- CTA：最短即日の円を大きく ---- */
+.cta-min{
+  width:150px;height:150px;font-size:14px;line-height:1.35;
+  border-width:3px;margin-bottom:14px;gap:1px;
+}
+.cta-min b{font-size:30px;line-height:1.15;margin:2px 0}
+@media (max-width:359px){
+  .cta-min{width:132px;height:132px;font-size:12.5px}
+  .cta-min b{font-size:26px}
+}
+@media (min-width:769px){
+  .cta-min{width:176px;height:176px;font-size:16px;border-width:3px;margin-bottom:16px}
+  .cta-min b{font-size:36px}
+}
+
+/* ---- CTA：スタッフ写真を白枠の下に重ねる ---- */
+.cta-head{position:relative;z-index:3;align-items:flex-end;margin-bottom:0}
+.cta-staff{margin-bottom:-2px;position:relative;z-index:1}
+.cta-box{position:relative;z-index:2}
+@media (min-width:769px){
+  .cta-staff{margin-bottom:-2px}
+}
+
+
+/* ---- 吹き出しを写真の高さに合わせ、尻尾が口元に来るように ---- */
+.cta-head{align-items:center}
+.cta-staff{align-self:flex-end;margin-bottom:-2px}
+.cta-bubble{margin-top:0;align-self:center}
+.cta-staff::after{top:26%}
+@media (min-width:769px){
+  .cta-bubble{margin-top:0}
+  .cta-staff::after{top:24%}
+}
+
+
+/* ---- PCでは吹き出しを上寄せにして尻尾を口元へ ---- */
+@media (min-width:769px){
+  .cta-bubble{align-self:flex-start;margin-top:6px}
+  .cta-staff::after{top:23%}
 }
 
 </style>
