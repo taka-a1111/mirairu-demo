@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- BUILD_TAG: mirairu_ihin_lp_ver8.7 / 2026-08-22 -->
+<!-- BUILD_TAG: mirairu_ihin_lp_ver8.8 / 2026-08-22 -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -1907,7 +1907,7 @@ ul,ol{list-style:none}
 @media (max-width:359px){ .hi-line .ico-line{width:42px;height:42px} }
 @media (min-width:769px){ .hi-line .ico-line{width:52px;height:52px} }
 
-/* ---- 料金表：みらいる列の金額を大きく（ver8.7） ---- */
+/* ---- 料金表：みらいる列の金額を大きく（ver8.8） ---- */
 .ptable th:nth-child(1),.ptable td:nth-child(1){width:17%}
 .ptable th:nth-child(2),.ptable td:nth-child(2){width:37%}
 .ptable th:nth-child(3),.ptable td:nth-child(3){width:23%}
@@ -1933,10 +1933,9 @@ ul,ol{list-style:none}
   .ptable .oth{font-size:16px;letter-spacing:0}
 }
 
-/* ---- FVスタッフ写真：男女2名構成に伴う収まり調整（ver8.7） ---- */
+/* ---- FVスタッフ写真：男女2名構成に伴う収まり調整（ver8.8） ---- */
 @media (max-width:768px){
   .fv-staff{right:12px;width:35%;max-width:146px}
-  .tags{padding-right:8px}
 }
 @media (max-width:359px){ .fv-staff{right:8px;width:33%;max-width:120px} }
 @media (min-width:769px) and (max-width:899px){ .fv-staff{right:20px} }
@@ -1944,14 +1943,14 @@ ul,ol{list-style:none}
 @media (min-width:1100px){ .fv-staff{right:28px} }
 @media (min-width:1600px){ .fv-staff{right:56px} }
 
-/* ---- FVスタッフ写真：切れた腕をタグボタンの背面に隠す（ver8.7） ---- */
+/* ---- FVスタッフ写真：切れた腕をタグボタンの背面に隠す（ver8.8） ---- */
 .fv-slash,.tags,.fv-copy,.fv-marugoto,.ba,.fv-price,.fv-note{position:relative;z-index:3}
 .fv-staff{z-index:1}
 @media (max-width:480px){
-  .fv-staff{transform:translateY(-30px);margin-right:11px}
+  .fv-staff{right:-12px;margin-right:0;transform:none}
 }
 @media (min-width:431px) and (max-width:480px){
-  .fv-staff{margin-right:28px}
+  .fv-staff{right:0}
 }
 </style>
 </head>
