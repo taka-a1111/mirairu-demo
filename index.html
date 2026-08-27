@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- BUILD_TAG: mirairu_ihin_lp_ver9.9 / 2026-08-27 -->
+<!-- BUILD_TAG: mirairu_ihin_lp_ver10.0 / 2026-08-27 -->
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -2009,6 +2009,9 @@ ul,ol{list-style:none}
 .logo-mk{width:auto;height:26px;flex:none;display:block}
 @media (max-width:359px){ .logo-mk{height:22px} }
 @media (min-width:769px){ .logo-mk{height:34px} }
+
+/* ---- 作業実績：見出しを上下中央に（ver10.0） ---- */
+.case-h{display:flex;align-items:center;justify-content:center;text-align:center}
 </style>
 
 <!-- ============================================================
@@ -2453,6 +2456,22 @@ document.getElementById('submitBtn').addEventListener('click',function(){
   m.style.display='block';
   m.textContent='こちらは確認用の画面です。本番環境では入力内容が指定のメールアドレスに送信されます。';
 });
+
+/* ---- 作業実績：見出しの高さを揃える（ver10.0） ---- */
+(function(){
+  var heads = Array.prototype.slice.call(document.querySelectorAll('.case-h'));
+  if(!heads.length) return;
+  function equalize(){
+    heads.forEach(function(h){ h.style.minHeight=''; });
+    var max=0;
+    heads.forEach(function(h){ max=Math.max(max, h.getBoundingClientRect().height); });
+    heads.forEach(function(h){ h.style.minHeight=Math.ceil(max)+'px'; });
+  }
+  equalize();
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(equalize);
+  window.addEventListener('load', equalize);
+  var t; window.addEventListener('resize', function(){ clearTimeout(t); t=setTimeout(equalize,150); });
+})();
 </script>
 </body>
 </html>
